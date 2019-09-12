@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic tac toe</title>
+	<link href="https://fonts.googleapis.com/css?family=arial black" rel="stylesheet">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="tic.css">
+</head>
+<body>
+	<audio autoplay>
+	  <source src="Jon Bellion - Eyes To The Sky (Official Audio).mp3" type="audio/mp3">
+	  <source src="Jon Bellion - Eyes To The Sky (Official Audio).mp3" type="audio/mp3">
+    </audio>
+	<center>
+	<!-- <div class="name">TIC TAC TOE</div> -->
+</center>
+
+	<center>
+	<div class="main">
+		<p>TIC TAC TOE</p>
+
+
+
+
+	<div  style="display: flex; width: 50%; background-color: white; margin-top: -30px; border-color: none; margin-top: 50px;">
+
+		<div style="width: 200%">			
+			
+
+
+
+			<table id="use">
+				<tr class="t">
+					<td class="w" id="0" onclick="shoutMe(event)"></td>
+					<td class="w" id="1" onclick="shoutMe(event)"></td>
+					<td class="w" id="2" onclick="shoutMe(event)"></td>
+				</tr>
+				<tr class="t">
+					<td class="w" id="3" onclick="shoutMe(event)"></td>
+					<td class="w" id="4" onclick="shoutMe(event)"></td>
+					<td class="w" id="5" onclick="shoutMe(event)"></td>
+				</tr>
+				<tr class="t">
+					<td class="w" id="6" onclick="shoutMe(event)"></td>
+					<td class="w" id="7" onclick="shoutMe(event)"></td>
+					<td class="w" id="8" onclick="shoutMe(event)"></td>
+				</tr>
+
+			</table>
+		</div>
+		<div style="width:200%; background-color: red; color: yellow; font-size: 40px;">
+			<strong>
+				<div  id="score"></div>
+			</strong>
+		</div>		
+	</div>
+		
+	<input type="button" id="exit" value="Play Again" onclick="if(win||over){ window.location.reload()}">
+	</div>
+	</center>
+
+	<!-- <input type="button" id="btn" value="Play Again" onclick="PlayAgain()"> -->
+	<!-- <button onclick="checkPlay()">Check Play</button> -->
+
+</body>
+<script type="text/javascript" >
+	cole=["","","","","","","","",""]
+		
+	var a = true, over= false, win=false, winner=false;
+
+	function see(){
+		seet(cole[0],cole[1],cole[2]);
+		seet(cole[3],cole[4],cole[5]);
+		seet(cole[6],cole[7],cole[8]);
+		seet(cole[0],cole[3],cole[6]);
+		seet(cole[1],cole[4],cole[7]);
+		seet(cole[2],cole[5],cole[8]);
+		seet(cole[0],cole[4],cole[8]);
+		seet(cole[2],cole[4],cole[6]);
+	}
+
+	function seet(a,b,c){
+		if(a!='' && b !='' && c!=''){
+			if(a===b && b === c){
+				score.innerHTML= "CONGRATS YOU'VE JUST WON!";
+				win = true;
+				winner=true
+				return;
+			}else{
+				over= true
+				return win = false;
+			}
+		}
+	}
+	function seeter(a,b){
+		return cole[a]=b;
+	}
+
+	function shoutMe(e) {
+		if(!win && !winner){
+			if (a && e.target.innerHTML== '') {	
+			a = false;
+				e.target.innerText = 'x';
+				seeter(e.target.id, 'x');
+
+			} else if (!a && event.target.innerHTML== '') {					
+					a = true;
+				e.target.innerText = 'o';
+				seeter(e.target.id, 'o');
+			}
+			console.log(cole);
+			see();
+		}
+	}
+	
+	</script>
+</html>
